@@ -10,7 +10,7 @@ const rl = readline.createInterface({
 
 const main = async () => {
     // Prompt user for country code
-    rl.question('Enter country code: ', (countryCode) => {
+    rl.question('Enter country code: ', async (countryCode) => {
         const fullCountryCode = countryCode
         // Prompt user for phone number
         rl.question('Enter phone number: ', async (phoneNumber) => {
