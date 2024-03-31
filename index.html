@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+</head>
+<body>
+<form id="phoneForm">
+    <label for="countryCode">Country Code:</label>
+    <select id="countryCode">
+        <option value="+1">USA (+1)</option>
+        <option value="+62">IDN (+62)</option>
+    </select>
+    <label for="phoneNumber">Phone Number:</label>
+    <input type="text" id="phoneNumber" required>
+    <button type="submit">Generate QR Code</button>
+</form>
+
+<script src="main.js"></script>
+</body>
+</html>

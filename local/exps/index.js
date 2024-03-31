@@ -16,7 +16,7 @@ const main = async () => {
         rl.question('Enter phone number: ', async (phoneNumber) => {
             const fullPhoneNumber = phoneNumber;
 
-            const gtc = new Gcapi({
+            const gcapi = new Gcapi({
                 cookiePath: './cookie.json',
                 showQr: false,
                 puppeteer: {
@@ -26,11 +26,11 @@ const main = async () => {
                 },
             });
 
-            gtc.on('qrcode', (value) => {
+            gcapi.on('qrcode', (value) => {
                 qrcode.generate(value, { small: true });
             });
 
-            gtc.on('logged', (logged) => {
+            gcapi.on('logged', (logged) => {
                 if (logged) {
                     console.log('logged');
                 } else {
@@ -38,14 +38,14 @@ const main = async () => {
                 }
             });
 
-            gtc.on('error', (error) => {
+            gcapi.on('error', (error) => {
                 console.error(error);
             });
 
-            await gtc.init();
+            await gcapi.init();
 
             // Use the full phone number from the user input
-            const tags = await gtc.find(fullCountryCode, fullPhoneNumber);
+            const tags = await gcapi.find(fullCountryCode, fullPhoneNumber);
             console.log(tags);
 
             // Close the readline interface
